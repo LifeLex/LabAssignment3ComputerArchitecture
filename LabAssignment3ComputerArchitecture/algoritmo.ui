@@ -87,7 +87,14 @@
      </property>
     </widget>
    </item>
-   <item row="10" column="0" colspan="2">
+   <item row="11" column="0" colspan="2">
+    <widget class="QPushButton" name="seleccionarpushButton">
+     <property name="text">
+      <string>Seleccionar Archivo</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0" colspan="2">
     <widget class="QPushButton" name="resetPushButton">
      <property name="text">
       <string>Reset</string>

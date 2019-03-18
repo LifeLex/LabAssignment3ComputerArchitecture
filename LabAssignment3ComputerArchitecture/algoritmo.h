@@ -5,6 +5,8 @@
 #include "iostream"
 #include "sstream"
 #include <QWidget>
+#include <QFileDialog>
+#include <QFile>
 using namespace std;
 namespace Ui {
 class Algoritmo;
@@ -21,6 +23,8 @@ public:
 private slots:
     void on_ejecutarPushButton_clicked();
 
+    void on_seleccionarpushButton_clicked();
+
 private:
     Ui::Algoritmo *ui;
 
@@ -29,6 +33,8 @@ private:
     int temp;
     int auxPrint=0;
     QTime timeElapsed;
+    QString fileName;
+
 
 };
 

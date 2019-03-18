@@ -36,6 +36,7 @@ public:
     QLabel *label;
     QLineEdit *mediaLineEdit;
     QPushButton *ejecutarPushButton;
+    QPushButton *seleccionarpushButton;
     QPushButton *resetPushButton;
 
     void setupUi(QWidget *Algoritmo)
@@ -115,10 +116,15 @@ public:
 
         formLayout->setWidget(8, QFormLayout::SpanningRole, ejecutarPushButton);
 
+        seleccionarpushButton = new QPushButton(Algoritmo);
+        seleccionarpushButton->setObjectName(QString::fromUtf8("seleccionarpushButton"));
+
+        formLayout->setWidget(11, QFormLayout::SpanningRole, seleccionarpushButton);
+
         resetPushButton = new QPushButton(Algoritmo);
         resetPushButton->setObjectName(QString::fromUtf8("resetPushButton"));
 
-        formLayout->setWidget(10, QFormLayout::SpanningRole, resetPushButton);
+        formLayout->setWidget(13, QFormLayout::SpanningRole, resetPushButton);
 
 
         retranslateUi(Algoritmo);
@@ -136,6 +142,7 @@ public:
         label_5->setText(QApplication::translate("Algoritmo", "Ejecucion 5", nullptr));
         label->setText(QApplication::translate("Algoritmo", "Media", nullptr));
         ejecutarPushButton->setText(QApplication::translate("Algoritmo", "Ejecutar", nullptr));
+        seleccionarpushButton->setText(QApplication::translate("Algoritmo", "Seleccionar Archivo", nullptr));
         resetPushButton->setText(QApplication::translate("Algoritmo", "Reset", nullptr));
     } // retranslateUi
 
