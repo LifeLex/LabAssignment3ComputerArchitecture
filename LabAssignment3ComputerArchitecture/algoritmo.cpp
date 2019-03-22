@@ -83,5 +83,6 @@ void Algoritmo::on_seleccionarpushButton_clicked()
     //Escoger el fichero y meter los datos en el array
      fileName= QFileDialog::getOpenFileName(this,tr(""),".",tr("*txt"));
      QFile file(fileName);
+     QTextStream in(&file);
 
 }
