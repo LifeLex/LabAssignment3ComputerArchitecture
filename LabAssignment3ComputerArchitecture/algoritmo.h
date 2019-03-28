@@ -8,6 +8,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+#include <QString>
+#include <QMessageBox>
 using namespace std;
 namespace Ui {
 class Algoritmo;
@@ -29,13 +31,18 @@ private slots:
 private:
     Ui::Algoritmo *ui;
 
-    int listaNumeros[100000];
+    //int listaNumeros[];
+    int nNumerosEnTxt;
     int numeroRandom;
     int temp;
     int auxPrint=0;
     QTime timeElapsed;
     QString fileName;
-    int nNumerosEnTxt;
+    QString string;
+    QStringList list;
+
+
+
 };
 
 #endif // ALGORITMO_H

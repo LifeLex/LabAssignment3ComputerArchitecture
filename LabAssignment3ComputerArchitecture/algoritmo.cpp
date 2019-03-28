@@ -16,6 +16,7 @@ Algoritmo::~Algoritmo()
 void Algoritmo::on_ejecutarPushButton_clicked()
 {
 
+    /*
     int x=0;
     //tiempo comienzo
     timeElapsed.start();
@@ -76,13 +77,29 @@ void Algoritmo::on_ejecutarPushButton_clicked()
         auxPrint++;
         x++;
     }
+    */
 }
 
 void Algoritmo::on_seleccionarpushButton_clicked()
 {
     //Escoger el fichero y meter los datos en el array
-     fileName= QFileDialog::getOpenFileName(this,tr(""),".",tr("*txt"));
+     fileName= QFileDialog::getOpenFileName(this,tr("Select a document"),".",tr("*.txt"));
      QFile file(fileName);
-     QTextStream in(&file);
+     //Error Message
+     if (!file.open(QIODevice::ReadOnly)) {
+         QMessageBox::information(0, "Information", file.errorString());
+     }
+     QTextStream content(&file);
+     string = content.readAll();
+     list = string.split(" ");
+
+     int listaNumeros[list.size()];
+     for (int i = 0;i<list.size();i++) {
+         listaNumeros[i] = list.at(i).toInt();
+     }
+     for (int i = 0;i<list.size();i++) {
+         cout<< listaNumeros[i] << endl;
+     }
+     file.close();
 
 }
