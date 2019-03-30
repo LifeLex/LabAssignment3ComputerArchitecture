@@ -142,7 +142,7 @@ public:
         label_5->setText(QApplication::translate("Algoritmo", "Ejecucion 5", nullptr));
         label->setText(QApplication::translate("Algoritmo", "Media", nullptr));
         ejecutarPushButton->setText(QApplication::translate("Algoritmo", "Ejecutar", nullptr));
-        seleccionarpushButton->setText(QApplication::translate("Algoritmo", "Seleccionar Archivo", nullptr));
+        seleccionarpushButton->setText(QApplication::translate("Algoritmo", "Seleccionar Archivo/Ejecutar", nullptr));
         resetPushButton->setText(QApplication::translate("Algoritmo", "Reset", nullptr));
     } // retranslateUi
 

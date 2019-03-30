@@ -10,6 +10,12 @@
 #include <QTextStream>
 #include <QString>
 #include <QMessageBox>
+#include <ctime>
+#include <iostream>
+#include <vector>
+#include <string>
+
+
 using namespace std;
 namespace Ui {
 class Algoritmo;
@@ -31,7 +37,7 @@ private slots:
 private:
     Ui::Algoritmo *ui;
 
-    //int listaNumeros[];
+
     int nNumerosEnTxt;
     int numeroRandom;
     int temp;
@@ -40,6 +46,7 @@ private:
     QString fileName;
     QString string;
     QStringList list;
+    vector<string>executionTimes;
 
 
 

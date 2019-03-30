@@ -1,6 +1,7 @@
 #include "algoritmo.h"
 #include "ui_algoritmo.h"
 
+
 Algoritmo::Algoritmo(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Algoritmo)
@@ -83,23 +84,45 @@ void Algoritmo::on_ejecutarPushButton_clicked()
 void Algoritmo::on_seleccionarpushButton_clicked()
 {
     //Escoger el fichero y meter los datos en el array
-     fileName= QFileDialog::getOpenFileName(this,tr("Select a document"),".",tr("*.txt"));
-     QFile file(fileName);
-     //Error Message
-     if (!file.open(QIODevice::ReadOnly)) {
-         QMessageBox::information(0, "Information", file.errorString());
-     }
-     QTextStream content(&file);
-     string = content.readAll();
-     list = string.split(" ");
+    fileName= QFileDialog::getOpenFileName(this,tr("Select a document"),".",tr("*.txt"));
+    QFile file(fileName);
+    //Error Message
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(0, "Information", file.errorString());
+    }
+    QTextStream content(&file);
 
-     int listaNumeros[list.size()];
-     for (int i = 0;i<list.size();i++) {
-         listaNumeros[i] = list.at(i).toInt();
-     }
-     for (int i = 0;i<list.size();i++) {
-         cout<< listaNumeros[i] << endl;
-     }
-     file.close();
+    //Inicio Tiempo
+    unsigned clockstart= clock();
+
+
+
+    string = content.readAll();
+    list = string.split(" ");
+
+    int listaNumeros[list.size()];
+    for (int i = 0;i<list.size();i++) {
+        listaNumeros[i] = list.at(i).toInt();
+    }
+    for (int i = 0;i<list.size();i++) {
+        cout<< listaNumeros[i] << endl;
+    }
+    file.close();
+
+    int temp = 0;
+    for (int i=1; i<list.size(); i++){
+        for (int j=0 ; j<list.size()-1; j++){
+            if (listaNumeros[j] > listaNumeros[j+1]){
+                temp = listaNumeros[j];
+                listaNumeros[j] = listaNumeros[j+1];
+                listaNumeros[j+1] = temp;
+            }
+        }
+    }
+
+    unsigned clockend= clock();
+    double finalTime = (double(clockstart-clockend)/CLOCKS_PER_SEC);
+    std::string txt;
+    txt=std::to_string(finalTime);
 
 }
