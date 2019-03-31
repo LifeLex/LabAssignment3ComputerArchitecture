@@ -35,9 +35,8 @@ public:
     QLineEdit *lineEdit_5;
     QLabel *label;
     QLineEdit *mediaLineEdit;
-    QPushButton *ejecutarPushButton;
     QPushButton *seleccionarpushButton;
-    QPushButton *resetPushButton;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *Algoritmo)
     {
@@ -104,27 +103,22 @@ public:
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
 
-        formLayout->setWidget(9, QFormLayout::LabelRole, label);
+        formLayout->setWidget(8, QFormLayout::LabelRole, label);
 
         mediaLineEdit = new QLineEdit(Algoritmo);
         mediaLineEdit->setObjectName(QString::fromUtf8("mediaLineEdit"));
 
-        formLayout->setWidget(9, QFormLayout::FieldRole, mediaLineEdit);
-
-        ejecutarPushButton = new QPushButton(Algoritmo);
-        ejecutarPushButton->setObjectName(QString::fromUtf8("ejecutarPushButton"));
-
-        formLayout->setWidget(8, QFormLayout::SpanningRole, ejecutarPushButton);
+        formLayout->setWidget(8, QFormLayout::FieldRole, mediaLineEdit);
 
         seleccionarpushButton = new QPushButton(Algoritmo);
         seleccionarpushButton->setObjectName(QString::fromUtf8("seleccionarpushButton"));
 
-        formLayout->setWidget(11, QFormLayout::SpanningRole, seleccionarpushButton);
+        formLayout->setWidget(6, QFormLayout::SpanningRole, seleccionarpushButton);
 
-        resetPushButton = new QPushButton(Algoritmo);
-        resetPushButton->setObjectName(QString::fromUtf8("resetPushButton"));
+        pushButton = new QPushButton(Algoritmo);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        formLayout->setWidget(13, QFormLayout::SpanningRole, resetPushButton);
+        formLayout->setWidget(10, QFormLayout::SpanningRole, pushButton);
 
 
         retranslateUi(Algoritmo);
@@ -141,9 +135,8 @@ public:
         label_4->setText(QApplication::translate("Algoritmo", "Ejecucion 4", nullptr));
         label_5->setText(QApplication::translate("Algoritmo", "Ejecucion 5", nullptr));
         label->setText(QApplication::translate("Algoritmo", "Media", nullptr));
-        ejecutarPushButton->setText(QApplication::translate("Algoritmo", "Ejecutar", nullptr));
         seleccionarpushButton->setText(QApplication::translate("Algoritmo", "Seleccionar Archivo/Ejecutar", nullptr));
-        resetPushButton->setText(QApplication::translate("Algoritmo", "Reset", nullptr));
+        pushButton->setText(QApplication::translate("Algoritmo", "Media", nullptr));
     } // retranslateUi
 
 };

@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <QElapsedTimer>
 
 
 using namespace std;
@@ -30,9 +31,11 @@ public:
     ~Algoritmo();
 
 private slots:
-    void on_ejecutarPushButton_clicked();
+
 
     void on_seleccionarpushButton_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Algoritmo *ui;
@@ -46,9 +49,8 @@ private:
     QString fileName;
     QString string;
     QStringList list;
-    vector<string>executionTimes;
-
-
+    double suma;
+    double media;
 
 };
 
