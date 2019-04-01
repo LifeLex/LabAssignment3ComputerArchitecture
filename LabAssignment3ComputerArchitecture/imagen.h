@@ -3,6 +3,24 @@
 
 #include <QWidget>
 
+#include "QTime"
+#include "iostream"
+#include "sstream"
+#include <QWidget>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QString>
+#include <QMessageBox>
+#include <ctime>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <QElapsedTimer>
+#include <fstream>
+
+
+
 namespace Ui {
 class Imagen;
 }
@@ -14,6 +32,9 @@ class Imagen : public QWidget
 public:
     explicit Imagen(QWidget *parent = nullptr);
     ~Imagen();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Imagen *ui;
