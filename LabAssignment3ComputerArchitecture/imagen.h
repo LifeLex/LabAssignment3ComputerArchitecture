@@ -36,7 +36,13 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
+
+    int auxPrint=0;
+    double suma;
+    double media;
     Ui::Imagen *ui;
 };
 

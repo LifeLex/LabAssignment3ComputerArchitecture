@@ -32,11 +32,14 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_5;
-    QLineEdit *lineEdit_6;
-    QLineEdit *lineEdit_7;
+    QLineEdit *tiempo1;
+    QLineEdit *tiempo2;
+    QLineEdit *tiempo3;
+    QLineEdit *tiempo4;
+    QLineEdit *tiempo5;
+    QLabel *label_6;
+    QLineEdit *mediaLineEdit;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *Imagen)
     {
@@ -45,7 +48,7 @@ public:
         Imagen->resize(533, 355);
         groupBox = new QGroupBox(Imagen);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 20, 471, 121));
+        groupBox->setGeometry(QRect(30, 0, 471, 121));
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(10, 90, 451, 24));
@@ -57,7 +60,7 @@ public:
         lineEdit_2->setGeometry(QRect(10, 60, 451, 24));
         groupBox_2 = new QGroupBox(Imagen);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(30, 140, 471, 191));
+        groupBox_2->setGeometry(QRect(30, 130, 471, 211));
         label = new QLabel(groupBox_2);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 30, 59, 16));
@@ -73,21 +76,30 @@ public:
         label_5 = new QLabel(groupBox_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(10, 150, 59, 16));
-        lineEdit_3 = new QLineEdit(groupBox_2);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(80, 30, 381, 24));
-        lineEdit_4 = new QLineEdit(groupBox_2);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(80, 60, 381, 24));
-        lineEdit_5 = new QLineEdit(groupBox_2);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
-        lineEdit_5->setGeometry(QRect(80, 90, 381, 24));
-        lineEdit_6 = new QLineEdit(groupBox_2);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
-        lineEdit_6->setGeometry(QRect(80, 120, 381, 24));
-        lineEdit_7 = new QLineEdit(groupBox_2);
-        lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
-        lineEdit_7->setGeometry(QRect(80, 150, 381, 24));
+        tiempo1 = new QLineEdit(groupBox_2);
+        tiempo1->setObjectName(QString::fromUtf8("tiempo1"));
+        tiempo1->setGeometry(QRect(80, 30, 381, 24));
+        tiempo2 = new QLineEdit(groupBox_2);
+        tiempo2->setObjectName(QString::fromUtf8("tiempo2"));
+        tiempo2->setGeometry(QRect(80, 60, 381, 24));
+        tiempo3 = new QLineEdit(groupBox_2);
+        tiempo3->setObjectName(QString::fromUtf8("tiempo3"));
+        tiempo3->setGeometry(QRect(80, 90, 381, 24));
+        tiempo4 = new QLineEdit(groupBox_2);
+        tiempo4->setObjectName(QString::fromUtf8("tiempo4"));
+        tiempo4->setGeometry(QRect(80, 120, 381, 24));
+        tiempo5 = new QLineEdit(groupBox_2);
+        tiempo5->setObjectName(QString::fromUtf8("tiempo5"));
+        tiempo5->setGeometry(QRect(80, 150, 381, 24));
+        label_6 = new QLabel(groupBox_2);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(10, 180, 61, 21));
+        mediaLineEdit = new QLineEdit(groupBox_2);
+        mediaLineEdit->setObjectName(QString::fromUtf8("mediaLineEdit"));
+        mediaLineEdit->setGeometry(QRect(80, 180, 113, 24));
+        pushButton_2 = new QPushButton(groupBox_2);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(210, 180, 80, 24));
 
         retranslateUi(Imagen);
 
@@ -105,6 +117,8 @@ public:
         label_3->setText(QApplication::translate("Imagen", "Tiempo 3", nullptr));
         label_4->setText(QApplication::translate("Imagen", "Tiempo 4", nullptr));
         label_5->setText(QApplication::translate("Imagen", "Tiempo 5", nullptr));
+        label_6->setText(QApplication::translate("Imagen", "Media", nullptr));
+        pushButton_2->setText(QApplication::translate("Imagen", "Calcular", nullptr));
     } // retranslateUi
 
 };
