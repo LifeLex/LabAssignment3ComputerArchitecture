@@ -95,16 +95,8 @@ void Algoritmo::on_seleccionarpushButton_clicked()
         x++;
         auxPrint++;
     }
-    /*
-    if (auxPrint==5) {
-        media=suma/5;
-        std::string txtmedia;
-        txtmedia= std::to_string(media);
 
-        ui->mediaLineEdit->setText(QString::fromStdString(txtmedia));
 
-    }
-    */
     suma = suma+ nMiliseconds;
 
 
