@@ -55,16 +55,20 @@ OBJECTS_DIR   = ./
 SOURCES       = ../LabAssignment3ComputerArchitecture/main.cpp \
 		../LabAssignment3ComputerArchitecture/mainwindow.cpp \
 		../LabAssignment3ComputerArchitecture/algoritmo.cpp \
-		../LabAssignment3ComputerArchitecture/imagen.cpp moc_mainwindow.cpp \
+		../LabAssignment3ComputerArchitecture/imagen.cpp \
+		../LabAssignment3ComputerArchitecture/imagen2.cpp moc_mainwindow.cpp \
 		moc_algoritmo.cpp \
-		moc_imagen.cpp
+		moc_imagen.cpp \
+		moc_imagen2.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		algoritmo.o \
 		imagen.o \
+		imagen2.o \
 		moc_mainwindow.o \
 		moc_algoritmo.o \
-		moc_imagen.o
+		moc_imagen.o \
+		moc_imagen2.o
 DIST          = ../LabAssignment3ComputerArchitecture/listaNumeros \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/qdevice.pri \
@@ -261,10 +265,12 @@ DIST          = ../LabAssignment3ComputerArchitecture/listaNumeros \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/lex.prf \
 		../LabAssignment3ComputerArchitecture/LabAssignment3ComputerArchitecture.pro ../LabAssignment3ComputerArchitecture/mainwindow.h \
 		../LabAssignment3ComputerArchitecture/algoritmo.h \
-		../LabAssignment3ComputerArchitecture/imagen.h ../LabAssignment3ComputerArchitecture/main.cpp \
+		../LabAssignment3ComputerArchitecture/imagen.h \
+		../LabAssignment3ComputerArchitecture/imagen2.h ../LabAssignment3ComputerArchitecture/main.cpp \
 		../LabAssignment3ComputerArchitecture/mainwindow.cpp \
 		../LabAssignment3ComputerArchitecture/algoritmo.cpp \
-		../LabAssignment3ComputerArchitecture/imagen.cpp
+		../LabAssignment3ComputerArchitecture/imagen.cpp \
+		../LabAssignment3ComputerArchitecture/imagen2.cpp
 QMAKE_TARGET  = LabAssignment3ComputerArchitecture
 DESTDIR       = 
 TARGET        = LabAssignment3ComputerArchitecture.app/Contents/MacOS/LabAssignment3ComputerArchitecture
@@ -283,7 +289,7 @@ include /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/
 first: all
 ####### Build rules
 
-LabAssignment3ComputerArchitecture.app/Contents/MacOS/LabAssignment3ComputerArchitecture: ui_mainwindow.h ui_algoritmo.h ui_imagen.h $(OBJECTS)  
+LabAssignment3ComputerArchitecture.app/Contents/MacOS/LabAssignment3ComputerArchitecture: ui_mainwindow.h ui_algoritmo.h ui_imagen.h ui_imagen2.h $(OBJECTS)  
 	@test -d LabAssignment3ComputerArchitecture.app/Contents/MacOS/ || mkdir -p LabAssignment3ComputerArchitecture.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -712,9 +718,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/mainwindow.h ../LabAssignment3ComputerArchitecture/algoritmo.h ../LabAssignment3ComputerArchitecture/imagen.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/main.cpp ../LabAssignment3ComputerArchitecture/mainwindow.cpp ../LabAssignment3ComputerArchitecture/algoritmo.cpp ../LabAssignment3ComputerArchitecture/imagen.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/mainwindow.ui ../LabAssignment3ComputerArchitecture/algoritmo.ui ../LabAssignment3ComputerArchitecture/imagen.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/mainwindow.h ../LabAssignment3ComputerArchitecture/algoritmo.h ../LabAssignment3ComputerArchitecture/imagen.h ../LabAssignment3ComputerArchitecture/imagen2.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/main.cpp ../LabAssignment3ComputerArchitecture/mainwindow.cpp ../LabAssignment3ComputerArchitecture/algoritmo.cpp ../LabAssignment3ComputerArchitecture/imagen.cpp ../LabAssignment3ComputerArchitecture/imagen2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../LabAssignment3ComputerArchitecture/mainwindow.ui ../LabAssignment3ComputerArchitecture/algoritmo.ui ../LabAssignment3ComputerArchitecture/imagen.ui ../LabAssignment3ComputerArchitecture/imagen2.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -749,9 +755,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_algoritmo.cpp moc_imagen.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_algoritmo.cpp moc_imagen.cpp moc_imagen2.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_algoritmo.cpp moc_imagen.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_algoritmo.cpp moc_imagen.cpp moc_imagen2.cpp
 moc_mainwindow.cpp: ../LabAssignment3ComputerArchitecture/mainwindow.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -764,7 +770,16 @@ moc_mainwindow.cpp: ../LabAssignment3ComputerArchitecture/mainwindow.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		../LabAssignment3ComputerArchitecture/imagen.h \
+		../LabAssignment3ComputerArchitecture/imagen2.h \
 		moc_predefs.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc
 	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc $(DEFINES) --include /Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/build-LabAssignment3ComputerArchitecture-Desktop_Qt_5_12_1_clang_64bit-Debug/moc_predefs.h -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang -I/Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/LabAssignment3ComputerArchitecture -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtGui.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib ../LabAssignment3ComputerArchitecture/mainwindow.h -o moc_mainwindow.cpp
@@ -778,6 +793,14 @@ moc_algoritmo.cpp: ../LabAssignment3ComputerArchitecture/algoritmo.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		moc_predefs.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc
 	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc $(DEFINES) --include /Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/build-LabAssignment3ComputerArchitecture-Desktop_Qt_5_12_1_clang_64bit-Debug/moc_predefs.h -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang -I/Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/LabAssignment3ComputerArchitecture -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtGui.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib ../LabAssignment3ComputerArchitecture/algoritmo.h -o moc_algoritmo.cpp
@@ -785,17 +808,52 @@ moc_algoritmo.cpp: ../LabAssignment3ComputerArchitecture/algoritmo.h \
 moc_imagen.cpp: ../LabAssignment3ComputerArchitecture/imagen.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		moc_predefs.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc
 	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc $(DEFINES) --include /Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/build-LabAssignment3ComputerArchitecture-Desktop_Qt_5_12_1_clang_64bit-Debug/moc_predefs.h -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang -I/Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/LabAssignment3ComputerArchitecture -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtGui.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib ../LabAssignment3ComputerArchitecture/imagen.h -o moc_imagen.cpp
+
+moc_imagen2.cpp: ../LabAssignment3ComputerArchitecture/imagen2.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		moc_predefs.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc
+	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/moc $(DEFINES) --include /Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/build-LabAssignment3ComputerArchitecture-Desktop_Qt_5_12_1_clang_64bit-Debug/moc_predefs.h -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang -I/Users/alejandro/Documents/GitHub/LabAssignment3ComputerArchitecture/LabAssignment3ComputerArchitecture -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtGui.framework/Headers -I/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib ../LabAssignment3ComputerArchitecture/imagen2.h -o moc_imagen2.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_algoritmo.h ui_imagen.h
+compiler_uic_make_all: ui_mainwindow.h ui_algoritmo.h ui_imagen.h ui_imagen2.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_algoritmo.h ui_imagen.h
+	-$(DEL_FILE) ui_mainwindow.h ui_algoritmo.h ui_imagen.h ui_imagen2.h
 ui_mainwindow.h: ../LabAssignment3ComputerArchitecture/mainwindow.ui \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic
 	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic ../LabAssignment3ComputerArchitecture/mainwindow.ui -o ui_mainwindow.h
@@ -807,6 +865,10 @@ ui_algoritmo.h: ../LabAssignment3ComputerArchitecture/algoritmo.ui \
 ui_imagen.h: ../LabAssignment3ComputerArchitecture/imagen.ui \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic
 	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic ../LabAssignment3ComputerArchitecture/imagen.ui -o ui_imagen.h
+
+ui_imagen2.h: ../LabAssignment3ComputerArchitecture/imagen2.ui \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic
+	/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/bin/uic ../LabAssignment3ComputerArchitecture/imagen2.ui -o ui_imagen2.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -832,7 +894,16 @@ main.o: ../LabAssignment3ComputerArchitecture/main.cpp ../LabAssignment3Computer
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		../LabAssignment3ComputerArchitecture/imagen.h \
+		../LabAssignment3ComputerArchitecture/imagen2.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../LabAssignment3ComputerArchitecture/main.cpp
@@ -849,7 +920,16 @@ mainwindow.o: ../LabAssignment3ComputerArchitecture/mainwindow.cpp ../LabAssignm
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		../LabAssignment3ComputerArchitecture/imagen.h \
+		../LabAssignment3ComputerArchitecture/imagen2.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../LabAssignment3ComputerArchitecture/mainwindow.cpp
 
@@ -862,14 +942,56 @@ algoritmo.o: ../LabAssignment3ComputerArchitecture/algoritmo.cpp ../LabAssignmen
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		ui_algoritmo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algoritmo.o ../LabAssignment3ComputerArchitecture/algoritmo.cpp
 
 imagen.o: ../LabAssignment3ComputerArchitecture/imagen.cpp ../LabAssignment3ComputerArchitecture/imagen.h \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		ui_imagen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imagen.o ../LabAssignment3ComputerArchitecture/imagen.cpp
+
+imagen2.o: ../LabAssignment3ComputerArchitecture/imagen2.cpp ../LabAssignment3ComputerArchitecture/imagen2.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTime \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QFile \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		ui_imagen2.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imagen2.o ../LabAssignment3ComputerArchitecture/imagen2.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -879,6 +1001,9 @@ moc_algoritmo.o: moc_algoritmo.cpp
 
 moc_imagen.o: moc_imagen.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_imagen.o moc_imagen.cpp
+
+moc_imagen2.o: moc_imagen2.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_imagen2.o moc_imagen2.cpp
 
 ####### Install
 

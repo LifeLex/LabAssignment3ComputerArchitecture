@@ -28,17 +28,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     algoritmo.cpp \
-    imagen.cpp
+    imagen.cpp \
+    imagen2.cpp
 
 HEADERS += \
         mainwindow.h \
     algoritmo.h \
-    imagen.h
+    imagen.h \
+    imagen2.h
 
 FORMS += \
         mainwindow.ui \
     algoritmo.ui \
-    imagen.ui
+    imagen.ui \
+    imagen2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

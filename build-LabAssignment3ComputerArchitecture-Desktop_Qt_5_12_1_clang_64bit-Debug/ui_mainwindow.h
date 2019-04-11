@@ -25,6 +25,7 @@ public:
     QGridLayout *gridLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -47,6 +48,11 @@ public:
 
         gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
 
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -59,6 +65,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "BenchMark", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "Algoritmo de Ordenacion Burbuja", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "Transformar Imagen", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Transformar Varias Imagenes", nullptr));
     } // retranslateUi
 
 };
