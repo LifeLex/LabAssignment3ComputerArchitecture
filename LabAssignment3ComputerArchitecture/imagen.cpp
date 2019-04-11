@@ -72,8 +72,12 @@ void Imagen::on_pushButton_clicked()
         ui->tiempo2->setText(QString::fromStdString(numero));
         QString ruta = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
                                                                                     | QFileDialog::DontResolveSymlinks);
+        QString rutaneg = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
+                                                                             | QFileDialog::DontResolveSymlinks);
         ruta.append("/foto2.png");
         final.save(ruta);
+        rutaneg.append("/foto2neg.png");
+        negativo.save(rutaneg);
         x++;
         auxPrint++;
         ui->lineEdit_2->setText(ruta);
@@ -83,8 +87,12 @@ void Imagen::on_pushButton_clicked()
         ui->tiempo3->setText(QString::fromStdString(numero));
         QString ruta = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
                                                                                     | QFileDialog::DontResolveSymlinks);
+        QString rutaneg = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
+                                                                             | QFileDialog::DontResolveSymlinks);
         ruta.append("/foto3.png");
         final.save(ruta);
+        rutaneg.append("/foto3neg.png");
+        negativo.save(rutaneg);
         x++;
         auxPrint++;
         ui->lineEdit_2->setText(ruta);
@@ -94,8 +102,12 @@ void Imagen::on_pushButton_clicked()
         ui->tiempo4->setText(QString::fromStdString(numero));
         QString ruta = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
                                                                                     | QFileDialog::DontResolveSymlinks);
+        QString rutaneg = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
+                                                                             | QFileDialog::DontResolveSymlinks);
         ruta.append("/foto4.png");
         final.save(ruta);
+        rutaneg.append("/foto4neg.png");
+        negativo.save(rutaneg);
         x++;
         auxPrint++;
         ui->lineEdit_2->setText(ruta);
@@ -105,8 +117,12 @@ void Imagen::on_pushButton_clicked()
         ui->tiempo5->setText(QString::fromStdString(numero));
         QString ruta = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
                                                          | QFileDialog::DontResolveSymlinks);
+        QString rutaneg = QFileDialog::getExistingDirectory(this,tr("Guardar foto"),"",QFileDialog::ShowDirsOnly
+                                                                             | QFileDialog::DontResolveSymlinks);
         ruta.append("/foto5.png");
         final.save(ruta);
+        rutaneg.append("/foto5neg.png");
+        negativo.save(rutaneg);
         x++;
         auxPrint++;
         ui->lineEdit_2->setText(ruta);
